@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node harness/sensors/ac-validator/ac-validator.js*)",
+      "Bash(node harness/sensors/cypress-analyzer/cypress-analyzer.js*)",
+      "Bash(node harness/sensors/doc-reviewer/doc-reviewer.js*)"
+    ]
+  }
+}
