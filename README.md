@@ -146,7 +146,7 @@ PR opened/updated
       └── .only detected? ──► CI BLOCKS PR
 ```
 
-### Mode 2 — Manual invocation in Copilot chat
+### Mode 2 — Manual invocation (Claude Code or Copilot chat)
 
 For AI-powered analysis (Pillars A, C, D) and the full 6-stage pipeline, invoke skills directly:
 
@@ -196,11 +196,21 @@ Release recommendation is one of:
 ```
 QA-Harness/
 ├── AGENTS.md                              ← agent instructions (read first)
+├── CLAUDE.md                              ← Claude Code project instructions
 ├── README.md                              ← this file
+├── .claude/
+│   ├── settings.json                      ← pre-approves the sensor Bash commands
+│   └── commands/                          ← SKILLS for Claude Code (slash commands)
+│       ├── qa-run.md                      ← orchestrator
+│       ├── qa-ac-validate.md              ← Pillar A
+│       ├── qa-cypress-analyze.md          ← Pillar B
+│       ├── qa-persona-uat.md              ← Pillar C
+│       ├── qa-doc-review.md               ← Pillar D
+│       └── qa-report.md                   ← Stage 6
 ├── .github/
 │   ├── workflows/
 │   │   └── qa-harness.yml                 ← GitHub Actions: auto-runs sensors on PR
-│   └── copilot/                           ← SKILLS (reusable, invokable)
+│   └── copilot/                           ← SKILLS for GitHub Copilot (prompt files)
 │       ├── qa-run.prompt.md               ← orchestrator
 │       ├── qa-ac-validate.prompt.md       ← Pillar A
 │       ├── qa-cypress-analyze.prompt.md   ← Pillar B
@@ -312,7 +322,8 @@ This harness is built on [Martin Fowler's harness engineering model](https://mar
 ## Prerequisites
 
 - Node.js ≥ 18 (for sensors — no dependencies required)
-- A coding agent that supports `.prompt.md` skills (Copilot, Claude Code, etc.)
+- A coding agent that supports either Claude Code slash commands (`.claude/commands/`)
+  or VS Code Copilot prompt files (`.github/copilot/`) — both are provided out of the box
 - Read access to the target repository's `tests/cypress/e2e/` folder
 - A completed `DOC_SOURCES_TEMPLATE.md` for Pillar D
 

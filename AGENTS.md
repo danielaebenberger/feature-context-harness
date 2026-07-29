@@ -67,8 +67,9 @@ Stage 6  QA Decision                 — assemble final report
 | Doc review | `/qa-doc-review` | Pillar D — documentation gap analysis |
 | QA report | `/qa-report` | Stage 6 — assemble report + recommendation |
 
-All skills are in `.github/copilot/`. Skills are designed to be invoked individually
-or chained by `/qa-run`.
+Skills are available as Claude Code commands in `.claude/commands/` and as GitHub
+Copilot prompt files in `.github/copilot/` — the two are kept behaviourally
+identical. Skills are designed to be invoked individually or chained by `/qa-run`.
 
 ---
 
@@ -148,9 +149,10 @@ Save output files as `[feature-slug]-[template-name].md` in the working director
 2. Add quality criteria for the new doc type
 
 ### Update a skill
-1. Edit the `.prompt.md` file in `.github/copilot/`
+1. Edit the command file in `.claude/commands/` **and** the matching `.prompt.md`
+   file in `.github/copilot/` — keep both in sync
 2. Test with a known feature (e.g., the versioning plan from the examples)
-3. Add a change note to the skill's YAML frontmatter description
+3. Add a change note to the skill's frontmatter description in both files
 
 ### Steer the harness (the human's job)
 When a failure mode recurs across multiple runs, improve the harness:
