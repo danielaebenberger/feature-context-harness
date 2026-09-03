@@ -1,3 +1,7 @@
+> **Archived 2026-09.** This repo's content has been merged into
+> [`qa-tool`](https://github.com/danielaebenberger/qa-tool) — see its
+> Feature Validation pillar and `docs/CAPABILITIES.md`.
+
 # Jahia QA Harness
 
 > Validates changes delivered by the developer harness from the **product perspective**.
